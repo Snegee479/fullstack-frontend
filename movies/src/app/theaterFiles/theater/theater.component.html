@@ -1,0 +1,29 @@
+<div *ngIf="error" class="alert alert-danger">
+  {{error}}
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Theater List
+        <button style="margin-right: 100px;" (click)="newTheater()" class="btn btn-primary">Add Theater</button>
+      </h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Theater Name</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of theater | async">
+            <td>{{t.theaterName}}</td>
+            <td><button (click)="deleteTheater(t.theaterId)" class="btn btn-danger">Delete</button>
+                <button (click)="updateTheater(t.theaterId)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                <button (click)="findByTheaterId(t.theaterId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

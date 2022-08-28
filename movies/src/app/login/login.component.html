@@ -1,0 +1,32 @@
+<div *ngIf="registered" class="alert alert-success">
+  Please Login with registered credentials, to proceed with Booking Movie Tickets
+</div>
+
+<div *ngIf="loggedOut" class="alert alert-info">
+  Please Login to continue Booking Tickets
+</div>
+<h2>Login form</h2>  
+  
+<form enctype="form"  (ngSubmit)="onSubmit()">  
+  
+  <div class="form-group">  
+    <div class=" col-md-offset-1 col-md-4">  
+        <label for="email"> Email </label>  
+        <input class="form-control" type="text" id="email" required [(ngModel)]="admin.email" name="email">   
+    </div>  
+  </div>  
+  
+  <div class="form-group">  
+    <div class=" col-md-offset-1 col-md-4">  
+        <label for="password"> Password </label>  
+        <input class="form-control" type="password" id="password" required [(ngModel)]="admin.password" name="password">   
+    </div>  
+  </div>  
+  
+  <div class="row" style="margin-top: 40px;">  
+    <div class="col-md-offset-1 col-md-4">  
+        <button class="btn btn-md btn-primary btn-style"  >Login</button>  
+    </div>  
+  </div>  
+  
+</form>  

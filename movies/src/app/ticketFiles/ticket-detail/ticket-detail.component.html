@@ -1,0 +1,34 @@
+<h2>Ticket Details</h2> 
+
+<hr/> 
+<div *ngIf="ticket">
+<div class="card p-3" style="display:flex ;align-items:center;position:center;justify-content:center;background-color:rgb(87, 98, 109);color:black;width:36%;">
+  <img src="data:image/jpg;base64,{{ticket.timeSlot.screen.movie.pic}}" class="card-img-top rounded" style="height:250px;width: 25vw; margin: 10pxl" />
+  <div class="card-body" >
+    <h5 class="card-title">Movie Name: {{ticket.timeSlot.screen.movie.movieName}}</h5>
+    <p class="card-text"><b>No Of Seats Booked: </b> {{ticket.ticketCount}}</p>
+    <p class="card-text"><b>Theater Details: </b> {{ticket.timeSlot.screen.theater.theaterName}}</p>
+    <p class="card-text"><b>Screen Details: </b> {{ticket.timeSlot.screen.screenName}}</p>
+    <p class="card-text"><b>Ticket Charges: </b>{{ticket.ticketPrice}}</p>
+    <p class="card-text"><b>Internet Charges: </b>{{ticket.internetFee}}</p>
+    <p class="card-text"><b>Total Price: </b> {{ticket.totalFee}}</p>
+    
+  </div>
+  <!-- <div>
+    <label><b>Movie Name: </b></label> {{ticket.timeSlot.screen.movie.movieName}}
+  </div>
+  <div>
+    <label><b>No Of Seats Booked: </b></label> {{ticket.ticketCount}}
+  </div>
+  <div>
+    <label><b>Theater Details: </b></label> {{ticket.timeSlot.screen.theater.theaterName}}
+  </div> 
+  <div>
+    <label><b>Screen Details: </b></label> {{ticket.timeSlot.screen.screenName}}
+  </div>
+  <div>
+    <label><b>Total Price: </b></label> {{ticket.timeSlot.screen.movie.ticketPrice}}
+  </div>
+   -->
+<br>
+<br>

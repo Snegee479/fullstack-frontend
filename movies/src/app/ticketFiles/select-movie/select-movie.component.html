@@ -1,0 +1,47 @@
+<div *ngIf="PayButtonClicked" class="alert alert-danger">
+PLEASE DO NOT REFRESH THE PAGE, TO COMPLETE THE PAYMENT AND BOOKING PROCESS SUCCESSFULLY.
+PAGE WILL BE RE DIRECTED ONCE YOU COMPLETE PAYMENT PROCESS IN CHOSEN UPI
+</div>
+<div *ngIf="exeededLimit" class="alert alert-danger">
+  TICKET COUNT EXCEEDS THE TOTAL NO OF AVAILABLE SEATS   </div>
+  
+<ng-container *ngIf=!(bookingThisSlot)>
+<div style="display:flex ;align-items:center;justify-content:center"
+    *ngFor="let t of timeSlot">
+    <div class="card p-3" style="width:36%" *ngIf=(t.screen.movie.activeStatus)>
+      <img src="data:image/jpg;base64,{{t.screen.movie.pic}}" class="card-img-top rounded" style="height:250px;width: 25vw; margin: 10pxl" />
+      <div class="card-body" >
+        <h5 class="card-title">Movie Name : {{t.screen.movie.movieName}}</h5>
+        <p class="card-text"><b>Category:</b> {{t.screen.movie.category}}</p>
+        <p class="card-text"><b>Language: </b>{{t.screen.movie.language}}</p>
+        <p class="card-text"><b>Movie Description: </b>{{t.screen.movie.movieDescription}}</p>
+        <p class="card-text"><b>Ticket Price: </b>{{t.screen.movie.ticketPrice}}</p>
+        <p class="card-text"><b>Active Status: </b>{{t.screen.movie.activeStatus}}</p>
+        <p class="card-text"><b>Theater: </b>{{t.screen.screenName}}</p>
+        <p class="card-text"><b>Screen: </b>{{t.screen.theater.theaterName}}</p>
+        <p class="card-text"><b>Start Time: </b>{{t.startTiming}}</p>
+        <p class="card-text"><b>End Time: </b>{{t.endTiming}}</p> 
+        <label for="name">Please enter how many tickets to proceed with booking</label>
+        <input type="number" class="form-control" id="ticketCount" required [(ngModel)]="ticketCount" name="ticketCount">
+        <button (click)="Book(t)"  class="btn btn-info" style="margin-left: 10px">Book Movie</button><br>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<div class="container fluid"  *ngIf=(bookingThisSlot)>
+    <div class="form-group">
+        <label for="name">Please enter your mail id </label>
+        <input type="email" class="form-control" id="email" required [(ngModel)]="email" name="email">
+      
+      <label for="name">Please enter your phone number linked with UPI Payment</label>
+        <input type="number" class="form-control" id="phone" required [(ngModel)]="phone" name="phone">
+      
+      <label for="name">Enter you mode of payment</label>
+      <select name="ModeOfPayment" id="ModeOfPayment">
+        <option value="GPAY">GPAY</option>
+        <option value="PHONEPE">PHONEPE</option>
+        <option value="PAYTM">PAYTM</option>
+        <option value="BHIM">BHIM</option>
+      </select>
+    <button (click)="Pay()" class="btn btn-info" style="margin-left: 10px"> Pay </button>
+</div>

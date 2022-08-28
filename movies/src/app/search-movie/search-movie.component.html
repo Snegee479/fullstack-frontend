@@ -1,0 +1,16 @@
+<div *ngIf="movie" style="display:flex ;align-items:center;justify-content:center">
+   
+    <div class="card p-3" style="width:36%">
+      <img src="data:image/jpg;base64,{{movie.pic}}" class="card-img-top rounded" style="height:250px;width: 25vw; margin: 10pxl" />
+      <div class="card-body" >
+        <h5 class="card-title">Movie Name : {{movie.movieName}}</h5>
+        <p class="card-text"><b>Category:</b> {{movie.category}}</p>
+        <p class="card-text"><b>Movie Description: </b>{{movie.movieDescription}}</p>
+        <p class="card-text"><b>Ticket Price: </b>{{movie.ticketPrice}}</p>
+        <p class="card-text"><b>Active Status: </b>{{movie.activeStatus}}</p>
+        <p class="card-text"><b>Language: </b>{{movie.language}}</p>
+        <button (click)="list()" class="btn btn-primary">Back to Book Movies</button><br>
+      </div>
+  
+  
+  
